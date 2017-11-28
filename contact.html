@@ -1,0 +1,19 @@
+<!-- ng-repeat individual sections -->
+<main class="contact-body-container container">
+    <div class="row profile-container" ng-repeat="(k,v) in filterSecId(SectionData)">
+            <div class="col-xs-12">
+                <h2>{{v.content.properties.Title.__text}}</h2>
+            </div>
+        <!-- filter IDs for Section and Section content. ng-repeat section content data to matching section ID -->
+        <div class="col-xs-3" ng-repeat="c in SectionContentData | filter:{'pId':v.content.properties.ID.__text}: true">
+            <div class="parent">
+                <img src="{{c.content.properties.URL.Url.__text}}"/>
+            </div>
+            <div class="label-container">
+                <p class="label">{{c.content.properties.ContentLabel.__text}}</p>
+                <h4 class="name">{{c.content.properties.Title.__text}}</h4>
+                <p class="contact-info">{{c.content.properties.ContentDescription.__text}}</p>
+            </div>
+        </div>
+    </div>
+</main>
